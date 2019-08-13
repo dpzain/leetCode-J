@@ -2,13 +2,13 @@ package dynamicProgram;
 
 
 /**
- * @auther zhangyu(dpzain)
+ * @auther zhangyu(dpzain) fixme Only Java
  * @date 2019/7/25 22:12
  */
 public class RegularMatchV3 {
 
     /**
-     * 动态规划 自底向上
+     * 动态规划 自底向上 TODO
      * 直接获取dp[text.lengths.max][pattern.lengths.max]
      * @param text
      * @param pattern
