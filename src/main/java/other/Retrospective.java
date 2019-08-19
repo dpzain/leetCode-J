@@ -1,7 +1,7 @@
 package other;
 
 /**
- * @auther zhangyu(dpzain)  fixme Only Java
+ * @auther zhangyu(dpzain)
  * @date 2019/8/5 22:33
  * <strong>回溯法</strong>经典案例
  * <p>

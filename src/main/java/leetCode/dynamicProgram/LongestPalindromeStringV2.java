@@ -1,6 +1,4 @@
-package dynamicProgram;
-
-import java.util.Arrays;
+package leetCode.dynamicProgram;
 
 /**
  * @Author dpzain
