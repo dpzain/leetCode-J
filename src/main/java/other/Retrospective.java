@@ -53,6 +53,7 @@ public class Retrospective {
     }
 
 
+
     /**
      * 八皇后问题
      * 在国际象棋棋盘8 × 8上放置八个皇后，使得任意两个皇后之间不能在同一行，同一列，也不能位于同于对角线上。问共有多少种不同的方法，并且指出各种不同的放法
@@ -113,9 +114,20 @@ public class Retrospective {
 
     public static void main(String[] args) {
 // 1 、爬楼梯问题
-// tryStep(5);
+        tryStep(5);
+        System.out.println(f1(5));
         //2、八皇后问题
-        eightQueen(0);
+//        eightQueen(0);
+    }
+
+    public static int f1(int n) {
+        if (n < 1) {
+            return 0;
+        }
+        if (n == 1 || n == 2) {
+            return n;
+        }
+        return f1(n - 1) + f1(n - 2);
     }
 
 }

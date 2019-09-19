@@ -7,6 +7,21 @@
     <groupId>com.dpzain</groupId>
     <artifactId>leetCode-J</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>11.0.2</version>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>
