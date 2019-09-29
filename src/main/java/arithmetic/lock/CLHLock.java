@@ -11,7 +11,11 @@ import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
  * 申请线程只在本地变量上自旋，它不断轮询前驱的状态，
  * 如果发现前驱释放了锁就结束自旋，获得锁
  */
-public class CLHLock {//看的不是很懂  2019 3 25
+public class CLHLock {//看的不是很懂  2019 3 25;
+
+//CLH 实际是虚拟队列的意思 在这里一个锁 或者CLHLock实例 其实永远都是只有一个tail 线程安全，所以使用引用更新器更新tail节点，
+// 返回的所谓前驱节点就是更新成功前上一个线程占有的标志 tail的值，用preNode引用 并在自己的线程自旋preNode变量 2019 09 27
+
     /**
      * 定义一个节点，默认的lock状态为true
      */
