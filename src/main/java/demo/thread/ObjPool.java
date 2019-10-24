@@ -2,6 +2,7 @@ package demo.thread;
 
 import java.util.List;
 import java.util.Vector;
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Semaphore;
 import java.util.function.Function;
 
@@ -23,6 +24,7 @@ public class ObjPool<T, R> {
             pool.add(t);
         }
         sem = new Semaphore(size);
+        
     }
 
     // 利用对象池的对象，调用 func

@@ -1,9 +1,6 @@
 package arithmetic.tree;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 /**
  *
@@ -215,32 +212,32 @@ public class BinTree {
 //        return res;
 //    }
 //
-//    // 非递归层次遍历
-//    public List<Integer> levelTraversal(Node root) {
-//        List<Integer> res = new ArrayList<>();
-//        if(root == null) {
-//            return res;
-//        }
-//
-//        Queue<Node> queue = new LinkedList<>();
-//
-//        q.add(root);
-//
-//        while(!queue.isEmpty()) {
-//            // current node
-//            Node current = queue.remove();
-//            res.add(current.val);
-//
-//            if(current.left != null) {
-//                queue.add(current.left);
-//            }
-//
-//            if(current.right != null) {
-//                queue.add(current.right);
-//            }
-//        }
-//
-//        return res;
-//    }
+//    // 非递归层次遍历 (广度优先遍历)
+    public List<Integer> levelTraversal(Node root) {
+        List<Integer> res = new ArrayList<>();
+        if(root == null) {
+            return res;
+        }
+
+        Queue<Node> queue = new LinkedList<>();
+
+        queue.add(root);
+
+        while(!queue.isEmpty()) {
+            // current node
+            Node current = queue.poll();
+            res.add(current.data);
+
+            if(current.leftChild != null) {
+                queue.add(current.leftChild);
+            }
+
+            if(current.rightChild != null) {
+                queue.add(current.rightChild);
+            }
+        }
+
+        return res;
+    }
 
 }
