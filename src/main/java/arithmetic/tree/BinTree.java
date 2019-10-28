@@ -1,9 +1,9 @@
 package arithmetic.tree;
 
+import javax.swing.tree.TreeNode;
 import java.util.*;
 
 /**
- *
  * @auther zhangyu(dpzain)
  * @date 2019/9/19 22:07
  */
@@ -15,7 +15,6 @@ public class BinTree {
      * 内部类：节点
      *
      * @author ocaicai@yeah.net @date: 2011-5-17
-     *
      */
     private static class Node {
         Node leftChild;
@@ -58,11 +57,10 @@ public class BinTree {
 
     /**
      * 先序遍历
-     *
+     * <p>
      * 这三种不同的遍历结构都是一样的，只是先后顺序不一样而已
      *
-     * @param node
-     *            遍历的节点
+     * @param node 遍历的节点
      */
     public static void preOrderTraverse(Node node) {
         if (node == null)
@@ -74,11 +72,10 @@ public class BinTree {
 
     /**
      * 中序遍历
-     *
+     * <p>
      * 这三种不同的遍历结构都是一样的，只是先后顺序不一样而已
      *
-     * @param node
-     *            遍历的节点
+     * @param node 遍历的节点
      */
     public static void inOrderTraverse(Node node) {
         if (node == null)
@@ -90,11 +87,10 @@ public class BinTree {
 
     /**
      * 后序遍历
-     *
+     * <p>
      * 这三种不同的遍历结构都是一样的，只是先后顺序不一样而已
      *
-     * @param node
-     *            遍历的节点
+     * @param node 遍历的节点
      */
     public static void postOrderTraverse(Node node) {
         if (node == null)
@@ -104,9 +100,26 @@ public class BinTree {
         System.out.print(node.data + " ");
     }
 
+
+    /**
+     * 获取树的最大深度
+     *
+     * @param root
+     * @return
+     */
+    public static int getMaxDepth(Node root) {
+        if (root == null)
+            return 0;
+
+        int left = getMaxDepth(root.leftChild);
+        int right = getMaxDepth(root.rightChild);
+        return 1 + Math.max(left, right);
+
+    }
+
     public static void main(String[] args) {
-         int[] array = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-        BinTree binTree = new BinTree ();
+        int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        BinTree binTree = new BinTree();
         binTree.createBinTree(array);
         // nodeList中第0个索引处的值即为根节点
         Node root = nodeList.get(0);
@@ -126,22 +139,22 @@ public class BinTree {
     // 非递归前序遍历
     public List<Integer> preorderTraversal(Node root) {
         List<Integer> res = new ArrayList<>();
-        if(root == null) {
+        if (root == null) {
             return res;
         }
 
         Stack<Node> stack = new Stack<>();
         stack.push(root);
 
-        while(!stack.isEmpty()) {
+        while (!stack.isEmpty()) {
             Node current = stack.pop();
             res.add(current.data);
 
-            if(current.rightChild != null) {
+            if (current.rightChild != null) {
                 stack.push(current.rightChild);
             }
 
-            if(current.leftChild != null) {
+            if (current.leftChild != null) {
                 stack.push(current.leftChild);
             }
         }
@@ -159,8 +172,8 @@ public class BinTree {
         Stack<Node> stack = new Stack<>();
 
         Node p = root;
-        while(p != null || !stack.isEmpty()) {
-            if(p != null) {
+        while (p != null || !stack.isEmpty()) {
+            if (p != null) {
                 stack.push(p);
                 p = p.leftChild;
             } else {
@@ -173,7 +186,7 @@ public class BinTree {
         return res;
     }
 
-//    // 非递归后序遍历
+    //    // 非递归后序遍历
 //    public List<Integer> postorderTraversal(Node root) {
 //        List<Integer> res = new ArrayList<>();
 //        if(root == null) {
@@ -215,7 +228,7 @@ public class BinTree {
 //    // 非递归层次遍历 (广度优先遍历)
     public List<Integer> levelTraversal(Node root) {
         List<Integer> res = new ArrayList<>();
-        if(root == null) {
+        if (root == null) {
             return res;
         }
 
@@ -223,16 +236,16 @@ public class BinTree {
 
         queue.add(root);
 
-        while(!queue.isEmpty()) {
+        while (!queue.isEmpty()) {
             // current node
             Node current = queue.poll();
             res.add(current.data);
 
-            if(current.leftChild != null) {
+            if (current.leftChild != null) {
                 queue.add(current.leftChild);
             }
 
-            if(current.rightChild != null) {
+            if (current.rightChild != null) {
                 queue.add(current.rightChild);
             }
         }

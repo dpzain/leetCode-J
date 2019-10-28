@@ -10,7 +10,7 @@ import java.util.Arrays;
  */
 public class HeapSort {
     /**
-     * 建堆
+     *   堆调整(左右孩子节点和根节点的调整)
      *
      * @param arrays          看作是完全二叉树
      * @param currentRootNode 当前父节点位置
@@ -18,7 +18,6 @@ public class HeapSort {
      */
     public static void heapify(int[] arrays, int currentRootNode, int size) {
 
-        if (currentRootNode < size) {
             //左子树和右字数的位置
             int left = 2 * currentRootNode + 1;
             int right = 2 * currentRootNode + 2;
@@ -44,10 +43,7 @@ public class HeapSort {
                 arrays[max] = arrays[currentRootNode];
                 arrays[currentRootNode] = temp;
 
-                //继续比较，直到完成一次建堆
-//                heapify(arrays, max, size);
             }
-        }
     }
 
     /**
@@ -68,7 +64,7 @@ public class HeapSort {
     }
 
     public static void main(String[] args) {
-        int[] arrays = {16, 7, 3, 20, 17, 8, 1, 3, 3, 28, 92, 6};
+        int[] arrays = {16, 7, 3, 20, 17, 8, 1, 3, 3, 28, 92, 6,188,16,1,0,205,182};
         for (int i = 0; i < arrays.length; i++) {
             //每次建堆就可以排除一个元素了
             maxHeapify(arrays, arrays.length - i);

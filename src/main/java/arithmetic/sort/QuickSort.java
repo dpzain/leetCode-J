@@ -17,7 +17,7 @@ public class QuickSort {
 
         while (i < j) {
             //先看右边，依次往左递减
-            while (temp <= arr[j] && i < j) {
+            while (temp < arr[j] && i < j) {
                 j--;
             }
             //再看左边，依次往右递增
@@ -38,7 +38,7 @@ public class QuickSort {
         //递归调用左半数组
         quickSort(arr, low, j - 1);
         //递归调用右半数组
-        quickSort(arr, j + 1, high);
+        quickSort(arr, i + 1, high);
     }
 
 
