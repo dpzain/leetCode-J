@@ -1,5 +1,7 @@
 package arithmetic.lock;
 
+import org.junit.Test;
+
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -16,7 +18,7 @@ public class TicketLock {
     /**
      * 服务号
      */
-    private AtomicInteger serviceNum = new AtomicInteger();
+    private AtomicInteger serviceNum = new AtomicInteger(1);
 
     /**
      * 排队号
@@ -43,6 +45,12 @@ public class TicketLock {
      */
     public void unlock(int ticketNum) {
         serviceNum.compareAndSet(ticketNum, ticketNum + 1);
+    }
+
+    @Test
+    public void test(){
+        System.out.println(ticketNum.incrementAndGet());
+        System.out.println(serviceNum.get());
     }
 }
 
@@ -78,4 +86,6 @@ class TicketLock2 {
         Integer currentTickNum = ticketNumHolder.get();
         serviceNum.compareAndSet(currentTickNum, currentTickNum + 1);
     }
+
+
 }
